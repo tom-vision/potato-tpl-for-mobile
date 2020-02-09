@@ -1,6 +1,6 @@
 const staticRouterMaps = [
   {
-    path: "/home",
+    path: "/",
     name: "home",
     meta: {
       name: "home"

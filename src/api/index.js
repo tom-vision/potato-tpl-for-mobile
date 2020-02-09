@@ -37,16 +37,16 @@ const states = {};
         : instance[type](url, params, options)
       )
         .then(({ state, msg, data }) => {
+          states[moduleName] = "ready";
           if (needLoading) loading.clear();
           if (!state) return Toast.fail(msg), reject(msg);
           if (needMsg) Toast.success(msg);
-          states[moduleName] = "ready";
           resolve(data);
         })
         .catch(err => {
+          states[moduleName] = "ready";
           if (needLoading) loading.clear();
           Toast.fail(err.msg);
-          states[moduleName] = "ready";
           reject(err);
         });
     });
