@@ -3,7 +3,7 @@ import { baseUrl } from "./baseUrl";
 
 // 创建 axios 实例
 let http = axios.create({
-  // headers: {'Content-Type': 'application/json'},
+  headers: { "Content-Type": "application/json" },
   baseURL: baseUrl,
   timeout: 60000
 });

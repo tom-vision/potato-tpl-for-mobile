@@ -4,8 +4,10 @@ import "vant/lib/toast/style";
 
 Toast.allowMultiple();
 const LoadingOptions = {
-  mask: true,
-  message: "加载中..."
+  type: "loading",
+  message: "加载中...",
+  forbidClick: true,
+  duration: 0
 };
 let loading;
 let instance = axios();
