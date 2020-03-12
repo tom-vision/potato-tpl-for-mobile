@@ -1,18 +1,24 @@
-const config = require("./src/config");
+const configs = require("./src/config");
 
 module.exports = {
   productionSourceMap: false,
-  publicPath: config.publicPath,
+  publicPath: configs.publicPath,
   devServer: {
-    port: config.port,
+    port: configs.port,
     proxy: {
       "/testApi": {
-        target: config.apiAddr,
+        target: configs.apiAddr,
         changeOrigin: true,
         pathRewrite: {
           "^/testApi": ""
         }
       }
     }
+  },
+  chainWebpack: config => {
+    config.plugin("html").tap(args => {
+      args[0].title = configs.project;
+      return args;
+    });
   }
 };

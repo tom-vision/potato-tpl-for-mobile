@@ -4,6 +4,13 @@ module.exports = {
   port: 8088, // 开发运行端口
   staticAddr: "", // 静态资源路径
   serverHost: "", // 线上地址
-  apiAddr: "/", // api地址
-  publicPath: "" // 二级目录地址
+  apiAddr: process.env.NODE_ENV === "development" ? "/api" : "/api", // api地址
+  uploadAddr: "http://dev.xinlantech.com/imgServer/api/upload", // 上传地址
+  publicPath: "", // 二级目录地址
+  share: {
+    // 微信分享用
+    title: "",
+    desc: "",
+    icon: ""
+  }
 };
