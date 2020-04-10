@@ -7,7 +7,7 @@ module.exports = {
     port: configs.port,
     proxy: {
       "/testApi": {
-        target: configs.apiAddr,
+        target: configs.apiHost,
         changeOrigin: true,
         pathRewrite: {
           "^/testApi": ""

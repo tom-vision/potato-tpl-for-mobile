@@ -41,8 +41,8 @@ const states = {};
         .then(({ state, msg, data }) => {
           states[moduleName] = "ready";
           if (needLoading) loading.clear();
-          if (!state) return Toast.fail(msg), reject(msg);
-          if (needMsg) Toast.success(msg);
+          if (!state && !!msg) return Toast.fail(msg), reject(msg);
+          if (needMsg && !!msg) Toast.success(msg);
           resolve(data);
         })
         .catch(err => {

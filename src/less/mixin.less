@@ -1,12 +1,43 @@
 .lineClamp(@line: 2) when (@line > 1) {
-    overflow : hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: @line;
-    -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
 }
-.lineClamp(@line: 1) when (@line = 1) {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+
+.lineClamp(@line: 1) when (@line =1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.border-1px(@color: #ccc, @radius: 2PX, @style: solid){
+  position: relative;
+  &::after {
+    content: "";
+    pointer-events: none;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform-origin: 0 0;
+    border-bottom: 1PX @style @color;
+    border-radius: @radius;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    @media (min-resolution: 2dppx){
+      width: 200%;
+      height: 200%;
+      border-radius: @radius * 2;
+      transform: scale(.5);
+    }
+    @media (min-resolution: 3dppx){
+      width: 300%;
+      height: 300%;
+      border-radius: @radius * 3;
+      transform: scale(.333);
+    }
+  }
 }

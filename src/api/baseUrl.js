@@ -7,7 +7,7 @@ switch (process.env.NODE_ENV) {
     baseUrl = "/testApi";
     break;
   case "production":
-    baseUrl = config.apiAddr;
+    baseUrl = config.apiHost;
     break;
 }
 
