@@ -10,6 +10,17 @@ export const isWx = () => {
   return ua.match(/MicroMessenger/i) == "micromessenger" ? true : false;
 };
 
+export const judgeDeviceType = () => {
+  const ua = window.navigator.userAgent.toLocaleLowerCase();
+  const isIOS = /iphone|ipad|ipod/.test(ua);
+  const isAndroid = /android/.test(ua);
+
+  return {
+    isIOS: isIOS,
+    isAndroid: isAndroid
+  };
+};
+
 export const shareConfig = ({ title, desc, link, imgUrl }) => {
   wx.updateAppMessageShareData({
     title,
