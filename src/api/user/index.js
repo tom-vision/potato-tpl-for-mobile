@@ -4,7 +4,8 @@ const modules = [
     method: "get",
     url: "/api/userInfo",
     needLoading: true,
-    needMsg: true
+    needMsg: true,
+    needCache: true
   }
 ];
 

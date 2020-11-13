@@ -7,12 +7,7 @@
 <script>
 export default {
   name: "home",
-  async created() {
-    // 调用api模块
-    const data = await this.$api.user.getUserInfo({
-      id: 1
-    });
-  }
+  async created() {}
 };
 </script>
 
