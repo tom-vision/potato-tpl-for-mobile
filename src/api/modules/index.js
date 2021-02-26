@@ -12,6 +12,7 @@ const modules = [
 const header = {};
 
 export default {
+  name: "user",
   modules,
   header
 };

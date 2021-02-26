@@ -1,5 +1,12 @@
 import methods from "./index";
-import userModule from "./user";
+
+let moduleArr = [];
+let apis = {};
+
+const files = require.context("@/api/modules", false, /.js$/);
+files.keys().forEach(file => {
+  moduleArr.push(files(file).default);
+});
 
 const sortOutModule = (modules, header) => {
   const api = {};
@@ -18,8 +25,8 @@ const sortOutModule = (modules, header) => {
   return api;
 };
 
-const user = sortOutModule(userModule.modules, userModule.header);
+moduleArr.forEach(arr => {
+  arr.name && (apis[arr.name] = sortOutModule(arr.modules, arr.header));
+});
 
-export default {
-  user
-};
+export default apis;
